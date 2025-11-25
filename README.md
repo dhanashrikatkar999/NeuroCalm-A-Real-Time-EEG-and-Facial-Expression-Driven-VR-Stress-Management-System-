@@ -273,11 +273,4 @@ git push
 Computer Engineering • AI/ML Developer
 NeuroCalm – Stress Detection & VR Therapy System
 
----
 
-If you want, I can also generate:
-✅ A professional GitHub **project banner**
-✅ A GitHub **logo** for NeuroCalm
-✅ A **Better README with images + flowcharts**
-
-Just tell me!
