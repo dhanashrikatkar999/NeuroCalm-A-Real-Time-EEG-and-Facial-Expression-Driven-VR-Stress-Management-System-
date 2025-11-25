@@ -202,7 +202,7 @@ NeuroCalm/
 | --------------------- | ------------------------- |
 | Linear Regression     | Very Low (Not suitable)   |
 | Logistic Regression   | Good baseline performance |
-| **SVM (Optimized)**   | ⭐ Best performance        |
+| **Random forest**   | ⭐ Best performance        |
 | CNN–LSTM (Facial)     | High accuracy             |
 | Hybrid Combined Model | Very stable prediction    |
 
