@@ -270,7 +270,7 @@ git push
 # 👩‍💻 **10. Author**
 
 **Dhanashri Katkar**
-Computer Engineering • AI/ML Developer
+Computer Engineering 
 NeuroCalm – Stress Detection & VR Therapy System
 
 
