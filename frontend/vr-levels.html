@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Therapy Levels | NeuroClam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {background: linear-gradient(135deg,  #1a2a6c,#533483, #ab8430);
+            
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .levels-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .level-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .level-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .acute {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+        
+        .episodic {
+            background: linear-gradient(to right, #43e97b, #38f9d7);
+        }
+        
+        .chronic {
+            background: linear-gradient(to right, #fa709a, #fee140);
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .watch-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .watch-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .level-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">NeuroClam VR</div>
+            <div class="page-title">Nature VR Therapy</div>
+            <div class="page-subtitle">Select your stress level to begin your immersive experience</div>
+            <a href="relaxation-tools.html" class="back-btn">← Back to Relaxation Tools</a>
+        </header>
+        
+        <div class="levels-container">
+            <!-- Acute Level Card -->
+            <div class="level-card">
+                <div class="card-header acute">
+                    Acute Level
+                </div>
+                <div class="card-body">
+                    <p>For immediate stress relief and short-term anxiety. These gentle nature scenes help calm your nervous system quickly when you're feeling overwhelmed.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/H7B7R6s8-o4" title="Acute Level VR Nature Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <a href="https://youtu.be/jqq_ZdD5Zwg?si=z-CLBOp5Z0xJ4gym" target="_blank" class="watch-btn">Watch VR Experience</a>
+                </div>
+            </div>
+            
+            <!-- Episodic Level Card -->
+            <div class="level-card">
+                <div class="card-header episodic">
+                    Episodic Level
+                </div>
+                <div class="card-body">
+                    <p>For recurring stress patterns and moderate anxiety. These immersive experiences help break the cycle of episodic stress with engaging natural environments.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/H7B7R6s8-o4" title="Episodic Level VR Nature Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <a href="https://youtu.be/B9IGe7s6Ook?si=AhTBlruMh8s76pZM" target="_blank" class="watch-btn">Watch VR Experience</a>
+                </div>
+            </div>
+            
+            <!-- Chronic Level Card -->
+            <div class="level-card">
+                <div class="card-header chronic">
+                    Chronic Level
+                </div>
+                <div class="card-body">
+                    <p>For long-term stress management and persistent anxiety. These deeply immersive environments support ongoing mental wellness and resilience building.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6N7bqIM0Bh8" title="Chronic Level VR Nature Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <a href="https://youtu.be/kyN623RzFe0?si=wHgMiZ6T44Pi6_r1" target="_blank" class="watch-btn">Watch VR Experience</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>NeuroClam VR Therapy &copy; 2023 | Immersive Mental Wellness</p>
+        </footer>
+    </div>
+</body>
+</html>

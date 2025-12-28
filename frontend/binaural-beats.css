@@ -1,0 +1,24 @@
+/* Add this to your existing CSS or create separate file */
+.api-setup {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 30px;
+    text-align: center;
+}
+
+.api-setup h3 {
+    color: #856404;
+    margin-bottom: 10px;
+}
+
+.api-setup a {
+    color: #4A00E0;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.api-setup a:hover {
+    text-decoration: underline;
+}

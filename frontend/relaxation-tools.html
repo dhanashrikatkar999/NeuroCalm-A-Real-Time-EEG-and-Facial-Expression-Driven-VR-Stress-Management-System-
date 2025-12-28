@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroClam - Relaxation Tools</title>
+    <link rel="stylesheet" href="relaxation-tools.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NeuroClam</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="live-detection.html">Live Detection</a></li>
+                    <li><a href="relaxation-tools.html" class="active">Relaxation Tools</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-title">
+                <h2>Relaxation & VR Therapy</h2>
+                <p>Explore our tools to reduce stress and improve mental wellbeing</p>
+            </div>
+
+         <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-icon">🌊</div>
+                    <h3>Breathing Exercises</h3>
+                    <p>Practice controlled breathing techniques to calm your nervous system.</p>
+                    <button class="tool-btn" data-tool="breathing">Begin Exercise</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🌲</div>
+                    <h3>Nature VR Experience</h3>
+                    <p>Immerse yourself in peaceful natural environments using VR technology.</p>
+                    <!-- <button class="tool-btn" data-tool="nature">Enter VR</button> -->
+                     <a href="vr-levels.html" class="tool-btn">Enter VR</a>
+                </div>
+                
+               <div class="tool-card">
+                   <div class="tool-icon">🎵</div>
+                       <h3>Binaural Beats</h3>
+                       <p>Listen to specially designed audio to promote relaxation and focus.</p>
+                       <a href="binaural-beats.html" class="tool-btn">Play Audio</a>
+                  </div> 
+               
+            </div>
+
+            <div id="toolModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="modalBody">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="relaxation-tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroClam - Breathing Exercise</title>
+    <link rel="stylesheet" href="breathing-exercise.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NeuroClam</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="live-detection.html">Live Detection</a></li>
+                    <li><a href="relaxation-tools.html">Relaxation Tools</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-title">
+                <h2>🌊 Breathing Exercise</h2>
+                <p>Practice the 4-7-8 technique to calm your mind and reduce stress</p>
+            </div>
+
+            <div class="breathing-container">
+                <div class="breathing-main">
+                    <div class="breathing-visual">
+                        <div class="breathing-circle" id="breathingCircle">
+                            <div class="circle-content">
+                                <span id="breathText">Ready to Breathe</span>
+                                <div id="breathTimer">0s</div>
+                                <div id="phaseProgress"></div>
+                            </div>
+                        </div>
+                        <div class="breathing-dots">
+                            <div class="dot active" data-phase="0">
+                                <span>Inhale</span>
+                            </div>
+                            <div class="dot" data-phase="1">
+                                <span>Hold</span>
+                            </div>
+                            <div class="dot" data-phase="2">
+                                <span>Exhale</span>
+                            </div>
+                            <div class="dot" data-phase="3">
+                                <span>Rest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="breathing-controls">
+                        <div class="breathing-instruction" id="breathInstruction">
+                            Click Start to begin your breathing exercise
+                        </div>
+                        
+                        <div class="breathing-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="cycleCount">0</span>
+                                <span class="stat-label">Cycles</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="totalTime">0s</span>
+                                <span class="stat-label">Time</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="calmScore">0%</span>
+                                <span class="stat-label">Calm</span>
+                            </div>
+                        </div>
+
+                        <div class="control-buttons">
+                            <button class="breathing-btn start" id="startBreathing">
+                                <span class="btn-icon">▶</span>
+                                Start Breathing
+                            </button>
+                            <button class="breathing-btn stop" id="stopBreathing" style="display: none;">
+                                <span class="btn-icon">⏸</span>
+                                Pause
+                            </button>
+                            <button class="breathing-btn reset" id="resetBreathing">
+                                <span class="btn-icon">↺</span>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="breathing-sidebar">
+                    <div class="technique-info">
+                        <h3>4-7-8 Breathing Technique</h3>
+                        <div class="technique-steps">
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <strong>Inhale</strong>
+                                    <p>Breathe in slowly through your nose for 4 seconds</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">7</div>
+                                <div class="step-content">
+                                    <strong>Hold</strong>
+                                    <p>Hold your breath for 7 seconds</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">8</div>
+                                <div class="step-content">
+                                    <strong>Exhale</strong>
+                                    <p>Exhale completely through your mouth for 8 seconds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="benefits-card">
+                        <h4>Benefits</h4>
+                        <ul class="benefits-list">
+                            <li>✅ Reduces anxiety and stress</li>
+                            <li>✅ Improves sleep quality</li>
+                            <li>✅ Lowers blood pressure</li>
+                            <li>✅ Increases mindfulness</li>
+                            <li>✅ Enhances relaxation</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-card">
+                        <h4>Tips for Success</h4>
+                        <ul class="tips-list">
+                            <li>• Find a quiet, comfortable space</li>
+                            <li>• Sit with your back straight</li>
+                            <li>• Practice regularly for best results</li>
+                            <li>• Focus on the rhythm of your breath</li>
+                            <li>• Start with 4 cycles, gradually increase</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Your Progress</h3>
+                <div class="progress-stats">
+                    <div class="progress-item">
+                        <label>Today's Sessions:</label>
+                        <span id="sessionsToday">0</span>
+                    </div>
+                    <div class="progress-item">
+                        <label>Total Cycles:</label>
+                        <span id="totalCycles">0</span>
+                    </div>
+                    <div class="progress-item">
+                        <label>Longest Session:</label>
+                        <span id="longestSession">0s</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="breathing-exercise.js"></script>
+</body>
+</html>

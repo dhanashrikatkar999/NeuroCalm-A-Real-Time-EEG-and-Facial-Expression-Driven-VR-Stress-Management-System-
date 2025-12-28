@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroClam - Live Detection</title>
+    <link rel="stylesheet" href="live-detection.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NeuroClam</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="live-detection.html" class="active">Live Detection</a></li>
+                    <li><a href="relaxation-tools.html">Relaxation Tools</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Capture Image</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">EEG Parameters</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Results</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Image Capture -->
+            <div id="step1" class="step-content active">
+                <div class="page-title">
+                    <h2>Facial Expression Analysis</h2>
+                    <p>Adjust your face in live preview, then capture or upload an image</p>
+                </div>
+
+                <div class="camera-section">
+                    <div class="camera-preview">
+                        <div id="cameraPlaceholder" class="camera-placeholder">
+                            <div class="placeholder-icon">📷</div>
+                            <p>No image or camera preview</p>
+                            <p>Click "Start Camera" to begin</p>
+                        </div>
+                        <video id="videoElement" autoplay playsinline style="display: none;"></video>
+                        <canvas id="canvasElement" style="display: none;"></canvas>
+                    </div>
+                    
+                    <div class="camera-controls">
+                        <button id="startCamera" class="control-btn">Start Camera</button>
+                        <button id="captureBtn" class="control-btn" disabled>Capture Image</button>
+                        <button id="retakeBtn" class="control-btn" disabled>Retake</button>
+                        <button id="uploadBtn" class="control-btn">Upload Image</button>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="next-section">
+                        <button id="nextToStep2" class="next-btn" disabled>
+                            Continue to EEG Parameters
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: EEG Parameters -->
+            <!-- Step 2: EEG Parameters -->
+<div id="step2" class="step-content">
+    <div class="page-title">
+        <h2>EEG Brainwave Analysis</h2>
+        <p>Enter your EEG parameters for comprehensive stress assessment</p>
+    </div>
+
+    <div class="eeg-section">
+        <div class="eeg-inputs">
+            <div class="eeg-grid">
+                <div class="eeg-param">
+                    <label for="alpha">
+                        <span class="wave-icon">α</span>
+                        TP9
+                    </label>
+                    <input type="number" id="alpha" value="0" min="0" max="100" step="0.1" placeholder="Enter value">
+                </div>
+                <div class="eeg-param">
+                    <label for="beta">
+                        <span class="wave-icon">β</span>
+                        AF7
+                    </label>
+                    <input type="number" id="beta" value="0" min="0" max="100" step="0.1" placeholder="Enter value">
+                </div>
+                <div class="eeg-param">
+                    <label for="gamma">
+                        <span class="wave-icon">γ</span>
+                        AF8
+                    </label>
+                    <input type="number" id="gamma" value="0" min="0" max="100" step="0.1" placeholder="Enter value">
+                </div>
+                <div class="eeg-param">
+                    <label for="theta">
+                        <span class="wave-icon">θ</span>
+                        TP10
+                    </label>
+                    <input type="number" id="theta" value="0" min="0" max="100" step="0.1" placeholder="Enter value">
+                </div>
+                <div class="eeg-param full-width">
+                    <label for="delta">
+                        <span class="wave-icon">δ</span>
+                        Right AUX
+                    </label>
+                    <input type="number" id="delta" value="0" min="0" max="100" step="0.1" placeholder="Enter value">
+                </div>
+            </div>
+
+            <!-- ADD AUTOFILL BUTTON HERE -->
+            <div class="autofill-section">
+                <button id="autofillBtn" class="autofill-btn">
+                    <span class="btn-icon">⚡</span>
+                    Autofill from EEG Device
+                </button>
+                <div id="autofillStatus" class="autofill-status"></div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="backToStep1" class="nav-btn back-btn">
+                    <span class="btn-arrow">←</span>
+                    Back to Image
+                </button>
+                <button id="predictStressBtn" class="nav-btn predict-btn">
+                    Analyze Stress Level
+                    <span class="btn-icon">🧠</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Step 3: Results -->
+           
+<!-- Step 3: Results -->
+<div id="step3" class="step-content">
+    <div class="page-title">
+        <h2>Stress Analysis Complete</h2>
+        <p>Your comprehensive stress assessment result</p>
+    </div>
+
+    <div class="results-section">
+        <div class="result-card">
+            <div class="result-main">
+                <div class="level-icon" id="levelIcon">😊</div>
+                <h3 id="stressLevelText">Not Stressed</h3>
+                <div class="stress-description" id="stressDescription">
+    <!-- Description will appear here dynamically -->
+</div>
+            </div>
+
+            <div class="result-actions">
+                <button id="newAnalysisBtn" class="action-btn primary">
+                    Start New Analysis
+                </button>
+                <button id="viewRelaxationBtn" class="action-btn secondary">
+                    Try Relaxation Tools
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+
+    <script src="live-detection.js"></script>
+</body>
+</html>

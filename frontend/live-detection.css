@@ -1,0 +1,778 @@
+
+/* live-detection.css - Multi-step version */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg,  #1a2a6c,#533483, #ab8430);
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #6ab1f7;
+}
+
+/* Progress Steps */
+.progress-steps {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    max-width: 200px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.step.active .step-number {
+    background: #4a90e2;
+    border-color: #6ab1f7;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.step.active .step-label {
+    opacity: 1;
+}
+
+/* Step Content */
+.step-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.step-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+    text-align: center;
+    padding: 20px 0 30px;
+}
+
+.page-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Step 1: Camera Section */
+.camera-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.camera-preview {
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.camera-placeholder {
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.camera-placeholder p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+.camera-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.control-btn {
+    padding: 12px 25px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 140px;
+}
+
+.control-btn:hover:not(:disabled) {
+    background: #6ab1f7;
+    transform: translateY(-2px);
+}
+
+.control-btn:disabled {
+    background: #666;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.next-section {
+    text-align: center;
+}
+
+.next-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #4a90e2, #6ab1f7);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+}
+
+.next-btn:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.6);
+}
+
+.next-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.next-btn:hover:not(:disabled) .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Step 2: EEG Section */
+/* Step 2: EEG Section - Centered without animation */
+/* Autofill Section Styles */
+.autofill-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.autofill-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.autofill-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.autofill-btn:active {
+    transform: translateY(0);
+}
+
+.autofill-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.autofill-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.autofill-status.success {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.autofill-status.error {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.autofill-status.loading {
+    background: rgba(23, 162, 184, 0.2);
+    color: #17a2b8;
+    border: 1px solid rgba(23, 162, 184, 0.3);
+}
+.eeg-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.eeg-inputs {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.eeg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.eeg-param {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.eeg-param.full-width {
+    grid-column: 1 / span 2;
+}
+
+.eeg-param label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #6ab1f7;
+    font-size: 1.1rem;
+}
+
+.wave-icon {
+    font-size: 1.4rem;
+    font-weight: bold;
+    background: rgba(106, 177, 247, 0.2);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave-description {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.eeg-param input {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.eeg-param input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+.eeg-param input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.value-display {
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #6ab1f7;
+    background: rgba(106, 177, 247, 0.1);
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(106, 177, 247, 0.3);
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.predict-btn {
+    background: linear-gradient(135deg, #4a90e2, #6ab1f7);
+    color: white;
+}
+
+.predict-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(74, 144, 226, 0.4);
+}
+
+/* Remove the old animation styles that are no longer needed */
+.eeg-visualization,
+.brain-graphic,
+.brain-waves,
+.wave,
+.wave-animation {
+    display: none;
+}
+
+/* Responsive design for EEG section */
+@media (max-width: 900px) {
+    .eeg-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .eeg-param.full-width {
+        grid-column: 1;
+    }
+    
+    .eeg-inputs {
+        padding: 30px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .eeg-section {
+        max-width: 100%;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .eeg-inputs {
+        padding: 25px 20px;
+    }
+    
+    .eeg-param input {
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .eeg-inputs {
+        padding: 20px 15px;
+    }
+    
+    .eeg-param label {
+        font-size: 1rem;
+    }
+    
+    .wave-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Step 3: Results */
+/* Step 3: Simplified Results */
+.results-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.result-main {
+    margin-bottom: 50px;
+}
+
+.level-icon {
+    font-size: 8rem;
+    margin-bottom: 30px;
+    display: block;
+    animation: pulse 2s infinite;
+}
+
+.result-card h3 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.stress-description {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #fdbb2d;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Stress Level Colors - Enhanced */
+.stress-level-not-stressed { 
+    color: #4CAF50;
+    text-shadow: 0 0 30px rgba(76, 175, 80, 0.6);
+}
+.stress-level-acute { 
+    color: #FF9800;
+    text-shadow: 0 0 30px rgba(255, 152, 0, 0.6);
+}
+.stress-level-episodic { 
+    color: #F44336;
+    text-shadow: 0 0 30px rgba(244, 67, 54, 0.6);
+}
+.stress-level-chronic { 
+    color: #9C27B0;
+    text-shadow: 0 0 30px rgba(156, 39, 176, 0.6);
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 160px;
+    font-size: 1rem;
+}
+
+.action-btn.primary {
+    background: #4a90e2;
+    color: white;
+}
+
+.action-btn.primary:hover {
+    background: #6ab1f7;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+}
+
+.action-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Responsive design for results */
+@media (max-width: 768px) {
+    .result-card {
+        padding: 50px 25px;
+    }
+    
+    .level-icon {
+        font-size: 6rem;
+    }
+    
+    .result-card h3 {
+        font-size: 2.5rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-card {
+        padding: 40px 20px;
+    }
+    
+    .level-icon {
+        font-size: 5rem;
+    }
+    
+    .result-card h3 {
+        font-size: 2rem;
+    }
+}
+/* Stress Level Colors */
+.stress-level-not-stressed { color: #4CAF50; }
+.stress-level-acute { color: #FF9800; }
+.stress-level-episodic { color: #F44336; }
+.stress-level-chronic { color: #9C27B0; }
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .eeg-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .eeg-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .eeg-param.full-width {
+        grid-column: 1;
+    }
+    
+    .detail-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    .progress-steps::before {
+        width: 80%;
+    }
+    
+    .step-label {
+        font-size: 0.8rem;
+    }
+    
+    .page-title h2 {
+        font-size: 2rem;
+    }
+    
+    .camera-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 200px;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+    }
+    
+    .result-header {
+        flex-direction: column;
+        text-align: center;
+    }
+} 
+
+.autofill-status {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.autofill-status.loading {
+    background: rgba(255, 193, 7, 0.2);
+    border: 1px solid #ffc107;
+    color: #ffc107;
+}
+
+.autofill-status.success {
+    background: rgba(40, 167, 69, 0.2);
+    border: 1px solid #28a745;
+    color: #28a745;
+}
+
+.autofill-status.warning {
+    background: rgba(255, 193, 7, 0.2);
+    border: 1px solid #ffc107;
+    color: #ffc107;
+}
+
+.autofill-status.error {
+    background: rgba(220, 53, 69, 0.2);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
